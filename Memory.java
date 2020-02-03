@@ -1,19 +1,19 @@
 
 /**
- * Beschreiben Sie hier die Klasse Nic.
+ * Beschreiben Sie hier die Klasse Memory.
  * 
  * @author (Ihr Name) 
  * @version (eine Versionsnummer oder ein Datum)
  */
-public class Nic
+public class Memory
 {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
     private int x;
 
     /**
-     * Konstruktor für Objekte der Klasse Nic
+     * Konstruktor für Objekte der Klasse Memory
      */
-    public Nic()
+    public Memory()
     {
         // Instanzvariable initialisieren
         x = 0;
