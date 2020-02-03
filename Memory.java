@@ -7,27 +7,56 @@
  */
 public class Memory
 {
-    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    private int x;
+    int[][] values = new int[6][6];
+    int[][] status = new int[6][6];
 
+    IO io = new IO();
+    
     /**
      * Konstruktor für Objekte der Klasse Memory
      */
     public Memory()
     {
-        // Instanzvariable initialisieren
-        x = 0;
+        values = new int[][]{
+            {3,4,1,5,5,2},
+            {6,2,7,8,6,7},
+            {1,8,9,3,9,5},
+            {5,3,2,4,1,7},
+            {8,9,7,9,6,2},
+            {3,4,1,6,8,4}
+        };
     }
 
-    /**
-     * Ein Beispiel einer Methode - ersetzen Sie diesen Kommentar mit Ihrem eigenen
-     * 
-     * @param  y    ein Beispielparameter für eine Methode
-     * @return        die Summe aus x und y
-     */
-    public int beispielMethode(int y)
+    public void statusAusgeben()
     {
-        // tragen Sie hier den Code ein
-        return x + y;
+        status[4][2] = 1;
+        status[3][5] = 1;
+        
+        for(int i = 0; i < status.length; i++)
+        {
+            for(int j = 0; j < status[i].length; j++)
+            {
+                int wert = status[i][j];
+                if (wert == 0) {
+                    io.print("*  ");
+                }
+                else {
+                    io.print(values[i][j] + "  ");
+                }
+            }
+            io.println("");
+        }
+    }
+    
+     public void werteAusgeben()
+     {
+        for(int i = 0; i < values.length; i++)
+        {
+            for(int j = 0; j < values[i].length; j++)
+            {
+                io.print(values[i][j] + "  ");
+            }
+            io.println("");
+        }
     }
 }
