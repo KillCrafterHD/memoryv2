@@ -44,19 +44,44 @@ public class Memory
     public void play() 
     {
         loadStatus();
-        while(true) 
-        {
-            if(countHidden() > 0) 
-            {
+        while(true) {
+            if(countHidden() > 0) {
+                statusAusgeben();
                 versuche++;
+                io.println("Bitte Location 1 eingeben. (z.B. 1,1)");
+                
                 String eingabe = io.readString();
                 String[] eingabe_array = eingabe.split(",");
                 
-                if(status[Integer.parseInt(eingabe_array[0])][Integer.parseInt(eingabe_array[0])] == 0) {
+                if(status[Integer.parseInt(eingabe_array[0])][Integer.parseInt(eingabe_array[1])] == 0) {
+                    status[Integer.parseInt(eingabe_array[0])][Integer.parseInt(eingabe_array[1])] = 1;
                     
+                    statusAusgeben();
                     
-                } else 
-                {
+                    io.println("Bitte Location 2 eingeben. (z.B. 1,1)");
+                                    
+                    String eingabe2 = io.readString();
+                    String[] eingabe2_array = eingabe2.split(",");
+                    
+                    if(status[Integer.parseInt(eingabe2_array[0])][Integer.parseInt(eingabe2_array[1])] == 0) {
+                        if(values[Integer.parseInt(eingabe_array[0])][Integer.parseInt(eingabe_array[1])] == values[Integer.parseInt(eingabe2_array[0])][Integer.parseInt(eingabe2_array[1])]) {
+                            status[Integer.parseInt(eingabe2_array[0])][Integer.parseInt(eingabe2_array[1])] = 2;
+                            status[Integer.parseInt(eingabe_array[0])][Integer.parseInt(eingabe_array[1])] = 2;
+                            io.println("2 Karten wurden aufgedeckt.");
+                        } else {
+                            status[Integer.parseInt(eingabe_array[0])][Integer.parseInt(eingabe_array[1])] = 0;
+                            io.println("Wooooouups!");
+                        }
+                        
+                        
+                    } else {
+                        io.println("Die Karte ist bereits aufgedeckt.");
+                        status[Integer.parseInt(eingabe_array[0])][Integer.parseInt(eingabe_array[1])] = 0;
+
+                    }
+                    
+                        
+                } else {
                     io.println("Die Karte ist bereits aufgedeckt.");
                 }
                 
@@ -71,8 +96,6 @@ public class Memory
     
     public void statusAusgeben()
     {
-        status[4][2] = 1;
-        status[3][5] = 1;
         
         for(int i = 0; i < status.length; i++)
         {
@@ -82,13 +105,10 @@ public class Memory
                 if (wert == 0) {
                     io.print("*  ");
                 }
-                else if (wert == 2)
-                {
-                    io.print("x");
-                }
-                else
-                {
+                else if(wert == 1) {
                     io.print(values[i][j] + "  ");
+                } else {
+                    io.print("   "); 
                 }
                 
             }
