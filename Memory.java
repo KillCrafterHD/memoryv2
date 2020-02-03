@@ -33,18 +33,21 @@ public class Memory
     
     public void showValues() {
     for(int i = 0; i < values.length; i++) {
-        for(int x = 0; x < values[i].length; x++) {
-            
-            
+        for(int x = 0; x < values[i].length; x++) 
+        {
+                
         }
     }
     
     }
     
-    public void play() {
+    public void play() 
+    {
         loadStatus();
-        while(true) {
-            if(countHidden() > 0) {
+        while(true) 
+        {
+            if(countHidden() > 0) 
+            {
                 versuche++;
                 String eingabe = io.readString();
                 String[] eingabe_array = eingabe.split(",");
@@ -52,11 +55,13 @@ public class Memory
                 if(status[Integer.parseInt(eingabe_array[0])][Integer.parseInt(eingabe_array[0])] == 0) {
                     
                     
-                } else {
+                } else 
+                {
                     io.println("Die Karte ist bereits aufgedeckt.");
                 }
                 
-            } else {
+            } else 
+            {
                 break;
             }
         
@@ -77,9 +82,15 @@ public class Memory
                 if (wert == 0) {
                     io.print("*  ");
                 }
-                else {
+                else if (wert == 2)
+                {
+                    io.print("x");
+                }
+                else
+                {
                     io.print(values[i][j] + "  ");
                 }
+                
             }
             io.println("");
         }
