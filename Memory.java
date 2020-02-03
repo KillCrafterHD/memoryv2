@@ -9,7 +9,7 @@ public class Memory
 {
     int[][] values = new int[6][6];
     int[][] status = new int[6][6];
-
+    int versuche = 0;
     IO io = new IO();
     
     /**
@@ -95,5 +95,34 @@ public class Memory
             }
             io.println("");
         }
+    }
+    
+     public void loadStatus()
+    {
+        status = new int[][]
+        {
+            {0,0,0,0,0,0},
+            {0,0,0,0,0,0},
+            {0,0,0,0,0,0},
+            {0,0,0,0,0,0},
+            {0,0,0,0,0,0},
+            {0,0,0,0,0,0}
+        };
+    }
+    
+    public int countHidden()
+    {   
+        int count = 0;
+        for (int i = 0; i < status.length; i++)
+        {
+            for (int j = 0; j < status[i].length; j++)
+            {
+                if (status[i][j] == 0)
+                {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 }
