@@ -27,6 +27,43 @@ public class Memory
         };
     }
 
+    public int randomPos() {
+        return (int) (Math.random() * 4) + 1;
+    }
+    
+    public void showValues() {
+    for(int i = 0; i < values.length; i++) {
+        for(int x = 0; x < values[i].length; x++) {
+            
+            
+        }
+    }
+    
+    }
+    
+    public void play() {
+        loadStatus();
+        while(true) {
+            if(countHidden() > 0) {
+                versuche++;
+                String eingabe = io.readString();
+                String[] eingabe_array = eingabe.split(",");
+                
+                if(status[Integer.parseInt(eingabe_array[0])][Integer.parseInt(eingabe_array[0])] == 0) {
+                    
+                    
+                } else {
+                    io.println("Die Karte ist bereits aufgedeckt.");
+                }
+                
+            } else {
+                break;
+            }
+        
+        }
+    }
+    
+    
     public void statusAusgeben()
     {
         status[4][2] = 1;
